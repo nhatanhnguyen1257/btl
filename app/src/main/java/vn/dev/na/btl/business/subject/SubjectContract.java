@@ -53,5 +53,10 @@ public interface SubjectContract {
         void setSearchNameObject(String nameObject);
         void findSubjectById(Integer subjectId);
         void findMajorBySubjectId(Integer subjectId);
+        void updateName(String name, Integer subjectId);
+        void updateNote(String note, Integer subjectId);
+        void updateNumber(Integer number, Integer subjectId);
+        void updateCode(String code, Integer subjectId);
+        void updaterequired(boolean isRequired, Integer subjectId);
     }
 }

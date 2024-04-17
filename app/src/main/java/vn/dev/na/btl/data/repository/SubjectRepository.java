@@ -76,4 +76,22 @@ public class SubjectRepository {
     public Subject findById(Integer subjectId){
         return database.subjectDAO().findById(subjectId);
     }
+
+
+    public void updateName(String name, Integer subjectId){
+        database.subjectDAO().updateName(name, subjectId);
+    }
+    public void updateNote(String note, Integer subjectId){
+        database.subjectDAO().updateNote(note, subjectId);
+    }
+    public void updateNumber(Integer number, Integer subjectId){
+        database.subjectDAO().updateNumber(number, subjectId);
+    }
+    public void updateRequired(boolean isRequired, Integer subjectId){
+        database.subjectDAO().updateRequired(isRequired, subjectId);
+    }
+
+    public void updateCode(String code, Integer subjectId) {
+        database.subjectDAO().updateCode(code, subjectId);
+    }
 }

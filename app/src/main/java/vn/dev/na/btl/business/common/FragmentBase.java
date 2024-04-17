@@ -25,6 +25,14 @@ public class FragmentBase extends Fragment  {
         fragmentTransaction.commit();
     }
 
+    public void replaceFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.main, fragment, fragment.getTag());
+        fragmentTransaction.addToBackStack(fragment.getTag());
+        fragmentTransaction.commit();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

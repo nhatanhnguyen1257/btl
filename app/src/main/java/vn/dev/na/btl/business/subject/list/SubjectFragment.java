@@ -143,7 +143,7 @@ public class SubjectFragment extends FragmentBase implements View.OnClickListene
     @Override
     public void showDetail(Integer subjectId) {
 //        addFragment(new AddMajorFragment(mPresenter));
-        addFragment( SubjectDetailFragment.newInstance(subjectId, mPresenter));
+        replaceFragment( SubjectDetailFragment.newInstance(subjectId, mPresenter));
     }
 
     @Override

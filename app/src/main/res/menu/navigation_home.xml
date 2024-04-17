@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_subject"
+        android:icon="@drawable/book_5_24px"
+        android:checked="true"
+        android:title="@string/title_subject" />
+
+    <item
+        android:id="@+id/navigation_major"
+        android:icon="@drawable/developer_guide_24px"
+        android:title="@string/title_major" />
+
+
+</menu>

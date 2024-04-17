@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="1dp"
+    android:paddingBottom="2dp">
+
+    <TextView
+        android:id="@+id/txt_noSubject"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:gravity="center"
+        android:text="5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/_009dfe"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_noSubject"
+        app:layout_constraintStart_toEndOf="@+id/txt_noSubject"
+        app:layout_constraintTop_toTopOf="@+id/txt_noSubject" />
+
+    <TextView
+        android:id="@+id/txt_nameSubject"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="dfsdfsdf"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:gravity="center|left"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_noSubject"
+        app:layout_constraintTop_toTopOf="@+id/txt_noSubject" />
+
+    <TextView
+        android:id="@+id/text_numberSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="2dp"
+        android:gravity="center|left"
+        android:textColor="#E11414"
+        android:text="5"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_noSubject"
+        app:layout_constraintStart_toEndOf="@+id/txt_noSubject"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nameSubject" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_nameSubject"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txt_noSubject" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="2dp"
+        android:text="Tín chỉ"
+        android:textColor="#E11414"
+        app:layout_constraintBottom_toBottomOf="@+id/text_numberSubject"
+        app:layout_constraintStart_toEndOf="@+id/text_numberSubject"
+        app:layout_constraintTop_toTopOf="@+id/text_numberSubject" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

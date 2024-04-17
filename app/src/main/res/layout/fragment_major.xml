@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:layout_marginBottom="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".business.major.list.MajorFragment">
+
+    <AutoCompleteTextView
+        android:id="@+id/edit_input_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:ellipsize="start"
+        android:background="@drawable/et_cust"
+        android:hint="Nhập tên ngành đào tạo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:background="@color/_607AD8"
+        android:text="Danh sách ngày đào tạo"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_add"
+        app:layout_constraintEnd_toStartOf="@+id/btn_add"
+        app:layout_constraintStart_toStartOf="@+id/edit_input_name"
+        app:layout_constraintTop_toBottomOf="@+id/edit_input_name" />
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/holo_blue_dark"
+        android:text="Thêm mới"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/edit_input_name"
+        app:layout_constraintTop_toBottomOf="@+id/edit_input_name" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recy_major"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_add" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

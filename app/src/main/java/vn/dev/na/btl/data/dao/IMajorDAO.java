@@ -61,8 +61,9 @@ public interface IMajorDAO {
 
     @Query("SELECT m.* FROM major m" +
             " INNER JOIN major_subject mb ON mb.major_id = m.id " +
-            " INNER JOIN subject s ON s.id = mb.subject_id " +
-            "where s.id = :subjectId ")
+            "where mb.subject_id = :subjectId ")
     List<Major> findAllBySubjectId(Integer subjectId);
+
+
 
 }

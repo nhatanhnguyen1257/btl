@@ -26,7 +26,8 @@ public interface SubjectContract {
 
     public interface ViewDetail {
         void showDetail(Subject subject);
-        void showListMajor(List<Major> lstMajor);
+        void showListMajor(List<Major> lstCheck, List<Major> lstUnCheck);
+        void addMajorToSubjet(Integer majorId);
     }
 
     public interface Presenter{
@@ -58,5 +59,6 @@ public interface SubjectContract {
         void updateNumber(Integer number, Integer subjectId);
         void updateCode(String code, Integer subjectId);
         void updaterequired(boolean isRequired, Integer subjectId);
+        void addSubjetToMajor(Integer majorId, Integer subjectId);
     }
 }

@@ -15,6 +15,11 @@ public interface IMajorSubjectDAO {
     @Insert
     void insert(MajorSubject majorSubject);
 
-    @Query("DELETE FROM major_subject WHERE major_id = :id")
-    void deleteByMajorId(int id);
+    @Query("DELETE FROM major_subject WHERE major_id = :major_id")
+    void deleteByMajorId(int major_id);
+    @Query("DELETE FROM major_subject WHERE id = :id")
+    void deleteById(Integer id);
+
+    @Query("SELECT * FROM major_subject WHERE major_id = :majorId and subject_id = :subjectId ")
+    MajorSubject findBySubjectAndMajorId(Integer subjectId, Integer majorId);
 }

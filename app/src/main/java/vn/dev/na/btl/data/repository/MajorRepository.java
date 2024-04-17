@@ -93,4 +93,5 @@ public class MajorRepository {
     public List<Major> findAllBySubjectId(Integer subjectId) {
         return database.majorDAO().findAllBySubjectId(subjectId);
     }
+
 }

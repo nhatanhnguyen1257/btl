@@ -217,11 +217,23 @@ public class SubjectDetailFragment extends FragmentBase implements SubjectContra
     }
 
     @Override
-    public void showListMajor(List<Major> lstMajor) {
+    public void showListMajor(List<Major> lstCheck, List<Major> lstUnCheck) {
+        SubjectContract.ViewDetail view = this;
         getView().post(new Runnable() {
             @Override
             public void run() {
+                MajorBySubjectAdapter adapter = new MajorBySubjectAdapter(lstCheck, lstUnCheck, view);
+                binding.recyLstMajorOfSubject.setAdapter(adapter);
+            }
+        });
+    }
 
+    @Override
+    public void addMajorToSubjet(Integer majorId) {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                mPresenter.addSubjetToMajor(majorId, mIdSubject);
             }
         });
     }

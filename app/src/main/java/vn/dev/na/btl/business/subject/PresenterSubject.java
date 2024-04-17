@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import vn.dev.na.btl.business.exception.MajorException;
 import vn.dev.na.btl.business.exception.SubjectException;
+import vn.dev.na.btl.data.entity.Major;
 import vn.dev.na.btl.data.entity.Subject;
 import vn.dev.na.btl.data.repository.MajorRepository;
 import vn.dev.na.btl.data.repository.MajorSubjectRepository;
@@ -133,7 +134,21 @@ public class PresenterSubject implements SubjectContract.Presenter{
 
     @Override
     public void findMajorBySubjectId(Integer subjectId) {
-        mViewDetail.showListMajor(mMajorRepository.findAllBySubjectId(subjectId));
+        List<Major> lstCheck = mMajorRepository.findAllBySubjectId(subjectId);
+        List<Major> lstUnCheck = new ArrayList<>();
+        for(Major major : mMajorRepository.lstMajor()) {
+            boolean check = false;
+            for (Major m: lstCheck) {
+                if  (m.getId().equals(major.getId())) {
+                    check = true;
+                }
+            }
+
+            if(!check) {
+                lstUnCheck.add(major);
+            }
+        }
+        mViewDetail.showListMajor(lstCheck ,lstUnCheck);
     }
 
     @Override
@@ -167,6 +182,12 @@ public class PresenterSubject implements SubjectContract.Presenter{
     public void updaterequired(boolean isRequired, Integer subjectId) {
         mSubjectRepository.updateRequired(isRequired, subjectId);
 //        showAllSubject();
+    }
+
+    @Override
+    public void addSubjetToMajor(Integer majorId, Integer subjectId) {
+        mMajorSubjectRepository.addSubjectToMajorOrDelete(majorId, subjectId);
+        findMajorBySubjectId(subjectId);
     }
 
     private List<Subject> searchObject(String number, String nameObj, String nameMajor) {

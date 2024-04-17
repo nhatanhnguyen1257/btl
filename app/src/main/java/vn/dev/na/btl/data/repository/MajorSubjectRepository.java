@@ -26,4 +26,16 @@ public class MajorSubjectRepository {
     public void deleteByMajorId(int id) {
         database.majorSubjectDAO().deleteByMajorId(id);
     }
+
+    public void addSubjectToMajorOrDelete(Integer majorId, Integer subjectId) {
+        MajorSubject data = database.majorSubjectDAO().findBySubjectAndMajorId(subjectId, majorId);
+        if(data != null) {
+            database.majorSubjectDAO().deleteById(data.getId());
+        } else {
+            data = new MajorSubject();
+            data.setMajorId(majorId);
+            data.setSubjectId(subjectId);
+            database.majorSubjectDAO().insert(data);
+        }
+    }
 }

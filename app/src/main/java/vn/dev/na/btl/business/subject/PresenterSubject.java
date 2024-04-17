@@ -136,6 +136,39 @@ public class PresenterSubject implements SubjectContract.Presenter{
         mViewDetail.showListMajor(mMajorRepository.findAllBySubjectId(subjectId));
     }
 
+    @Override
+    public void updateName(String name, Integer subjectId) {
+        if (name.isEmpty()) return;
+        mSubjectRepository.updateName(name, subjectId);
+//        showAllSubject();
+    }
+
+    @Override
+    public void updateNote(String note, Integer subjectId) {
+        if (note.isEmpty()) return;
+        mSubjectRepository.updateNote(note, subjectId);
+//        showAllSubject();
+    }
+
+    @Override
+    public void updateNumber(Integer number, Integer subjectId) {
+        mSubjectRepository.updateNumber(number, subjectId);
+//        showAllSubject();
+    }
+
+    @Override
+    public void updateCode(String code, Integer subjectId) {
+        if (code.isEmpty()) return;
+        mSubjectRepository.updateCode(code, subjectId);
+//        showAllSubject();
+    }
+
+    @Override
+    public void updaterequired(boolean isRequired, Integer subjectId) {
+        mSubjectRepository.updateRequired(isRequired, subjectId);
+//        showAllSubject();
+    }
+
     private List<Subject> searchObject(String number, String nameObj, String nameMajor) {
         number = number == null ? NAME_DEFAULT : number;
         nameMajor = nameMajor == null ? NAME_DEFAULT : nameMajor;

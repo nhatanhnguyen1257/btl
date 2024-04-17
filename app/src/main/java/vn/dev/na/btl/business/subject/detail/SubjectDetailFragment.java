@@ -56,19 +56,7 @@ public class SubjectDetailFragment extends FragmentBase implements SubjectContra
                              Bundle savedInstanceState) {
         binding = FragmentSubjectDetailBinding.inflate(inflater, container, false);
         mPresenter.setViewDetail(this);
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                mPresenter.findSubjectById(mIdSubject);
-            }
-        });
 
-        AsyncTask.execute(new Runnable() {
-            @Override
-            public void run() {
-                mPresenter.findMajorBySubjectId(mIdSubject);
-            }
-        });
         binding.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +72,12 @@ public class SubjectDetailFragment extends FragmentBase implements SubjectContra
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                AsyncTask.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        mPresenter.updateName(s.toString(), mIdSubject);
+                    }
+                });
             }
 
             @Override
@@ -93,7 +86,7 @@ public class SubjectDetailFragment extends FragmentBase implements SubjectContra
             }
         });
 
-        binding.editNameSubject.addTextChangedListener(new TextWatcher() {
+        binding.editNote.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -101,7 +94,12 @@ public class SubjectDetailFragment extends FragmentBase implements SubjectContra
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                AsyncTask.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        mPresenter.updateNote(s.toString(), mIdSubject);
+                    }
+                });
             }
 
             @Override
@@ -118,7 +116,15 @@ public class SubjectDetailFragment extends FragmentBase implements SubjectContra
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                AsyncTask.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (s.length() > 0) {
+                            mPresenter.updateNumber(Integer.decode(s.toString()), mIdSubject);
+                        }
 
+                    }
+                });
             }
 
             @Override
@@ -135,7 +141,12 @@ public class SubjectDetailFragment extends FragmentBase implements SubjectContra
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                AsyncTask.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        mPresenter.updateCode(s.toString(), mIdSubject);
+                    }
+                });
             }
 
             @Override
@@ -147,17 +158,39 @@ public class SubjectDetailFragment extends FragmentBase implements SubjectContra
         binding.radioRequired.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                AsyncTask.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        mPresenter.updaterequired(true, mIdSubject);
+                    }
+                });
             }
         });
 
         binding.radioNoRequired.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                AsyncTask.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        mPresenter.updaterequired(false, mIdSubject);
+                    }
+                });
             }
         });
         return binding.getRoot();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                mPresenter.findSubjectById(mIdSubject);
+                mPresenter.findMajorBySubjectId(mIdSubject);
+            }
+        });
     }
 
     @Override

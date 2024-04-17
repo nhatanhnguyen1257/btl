@@ -58,4 +58,16 @@ public interface ISubjectDAO {
             " INNER JOIN subject s ON s.id = mb.subject_id " +
             "where s.name like '%'|| :nameObject || '%'  and m.name like '%'|| :nameMajor ||'%'")
     List<Subject> findByNameObjAndNameMajor( String nameMajor, String nameObject);
+
+    @Query("update subject set name = :name where id =:subjectId ")
+    void updateName(String name, Integer subjectId);
+    @Query("update subject set note = :note where id =:subjectId ")
+    void updateNote(String note, Integer subjectId);
+    @Query("update subject set number =:number where id =:subjectId ")
+    void updateNumber(Integer number, Integer subjectId);
+    @Query("update subject set required = :isRequired where id =:subjectId ")
+    void updateRequired(boolean isRequired, Integer subjectId);
+
+    @Query("update subject set code = :code where id =:subjectId ")
+    void updateCode(String code, Integer subjectId);
 }
